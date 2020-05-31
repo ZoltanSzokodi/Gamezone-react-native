@@ -13,12 +13,10 @@ const getFonts = () =>
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  if (fontsLoaded) {
-    return <Home />;
-  } else {
-    return (
-      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
-    );
-  }
+  return fontsLoaded ? (
+    <Home />
+  ) : (
+    <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
+  );
 };
 export default App;
